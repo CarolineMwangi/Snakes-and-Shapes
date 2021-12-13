@@ -1,0 +1,5 @@
+﻿  Main.cpp
+C:\Users\cwmwa\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(17,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\cwmwa\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(24,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\cwmwa\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(32,19): warning C4018: '<': signed/unsigned mismatch
+  SnakesAndShapes.vcxproj -> C:\Users\cwmwa\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\Debug\SnakesAndShapes.exe
