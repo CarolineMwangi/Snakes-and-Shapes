@@ -1,11 +1,17 @@
-#include <GL/glut.h>
-#include <stdlib.h>
+#include <glut.h>
+#include <GL/gl.h>
+//#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "game.h"
+
+#define COLUMNS 40
+#define ROWS 40
 
 void init()
 {
 	glClearColor(0.0, 0.0, 0.2, 0.0);
+	initGrid(COLUMNS, ROWS);
 }
 
 void splashScreen()
@@ -38,6 +44,21 @@ void splashScreen()
 	glutSwapBuffers();
 }
 
+void display_callback() {
+	glClear(GL_COLOR_BUFFER_BIT);
+	drawGrid();
+	glutSwapBuffers();
+
+}
+
+void reshape_callback(int w, int h) {
+
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h); // Reset size of window when resized
+	glMatrixMode(GL_PROJECTION); // Change matrix mode to GL_PROJECTION
+	glLoadIdentity();
+	glOrtho(0.0, COLUMNS, 0.0, ROWS, -1.0, 1.0); 
+	glMatrixMode(GL_MODELVIEW); //Change back to ModelView matrix
+}
 
 /*void keys(unsigned char key, int x, int y)
 {
@@ -61,7 +82,9 @@ int main(int argc, char** argv)
 	glutCreateWindow("Snakes and Shapes"); //Create the display window
 	glutInitWindowSize(500, 500); //Set size of diplay window
 	glutInitWindowPosition(100, 100); //Set the position of the display window
-	glutDisplayFunc(splashScreen);//Dispaly callback for the current window
+	glutDisplayFunc(splashScreen);//Display callback for the current window
+	glutDisplayFunc(display_callback);
+	glutReshapeFunc(reshape_callback);
 	//glutKeyboardFunc(keys);
 	//glutTimerFunc(2000, timer, 0);
 	init();
