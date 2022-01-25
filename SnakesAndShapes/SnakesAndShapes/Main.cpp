@@ -1,16 +1,29 @@
-#include <glut.h>
+#include <GL/glut.h>
 #include <GL/gl.h>
-//#include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "game.h"
+#include "snakes.h"
 
-#define COLUMNS 40
-#define ROWS 40
+#define COLUMNS 50
+#define ROWS 50
+#define FPS 7 //snake will move through 7 frames in one second
+
+//Point to snake direction
+extern short snakeDir;
+
+void splashScreen();
+void display();
+void reshape(int,int);
+void timer(int);
+void gameControl(int, int, int);
+
 
 void init()
 {
+	//background color
 	glClearColor(0.0, 0.0, 0.2, 0.0);
+	//initialize grid
 	initGrid(COLUMNS, ROWS);
 }
 
@@ -39,56 +52,83 @@ void splashScreen()
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, message3[i]);
 	}
 
-	
 		
 	glutSwapBuffers();
 }
 
-void display_callback() {
+
+void display()
+{
 	glClear(GL_COLOR_BUFFER_BIT);
-	drawGrid();
+	Grid();
+	snake();
 	glutSwapBuffers();
-
 }
 
-void reshape_callback(int w, int h) {
-
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h); // Reset size of window when resized
-	glMatrixMode(GL_PROJECTION); // Change matrix mode to GL_PROJECTION
+void reshape(int width, int height)
+{
+	glViewport(0,0,(GLsizei)width,(GLsizei)height); //Set the viewport of the window
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.0, COLUMNS, 0.0, ROWS, -1.0, 1.0); 
-	glMatrixMode(GL_MODELVIEW); //Change back to ModelView matrix
+	glOrtho(0.0, COLUMNS, 0.0, ROWS, -1.0, 1.0);
+	glMatrixMode(GL_MODELVIEW);
 }
 
-/*void keys(unsigned char key, int x, int y)
+
+
+void keys(unsigned char key, int x, int y)
 {
 	if (key == 'x')
 	{
 		glutDisplayFunc(display);
+		glutReshapeFunc(reshape); //Reshape callback
+		glutTimerFunc(0, timer, 0);
+		glutSpecialFunc(gameControl);
 	}
-	glutPostRedisplay();
+	glutPostRedisplay(); //Call the display function as soon as possible
 }
 
-void timer(int value)
+void timer(int)
 {
-	glutDisplayFunc(display);
 	glutPostRedisplay();
-} */
+	glutTimerFunc(1000/FPS, timer, 0);
+} 
 
+void gameControl(int key, int, int)
+{
+	switch (key)
+	{
+	case GLUT_KEY_UP:
+		if (snakeDir != DOWN)
+			snakeDir = UP;
+		break;
+	case GLUT_KEY_DOWN:
+		if (snakeDir != UP)
+			snakeDir = DOWN;
+		break;
+	case GLUT_KEY_RIGHT:
+		if (snakeDir != LEFT)
+			snakeDir = RIGHT;
+		break;
+	case GLUT_KEY_LEFT:
+		if (snakeDir != RIGHT)
+			snakeDir = LEFT;
+		break;
+	}
+}
+
+//MAIN FUNCTION
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv); //Initialize glut library
-	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH); //Initialize display mode
 	glutCreateWindow("Snakes and Shapes"); //Create the display window
 	glutInitWindowSize(500, 500); //Set size of diplay window
 	glutInitWindowPosition(100, 100); //Set the position of the display window
-	glutDisplayFunc(splashScreen);//Display callback for the current window
-	glutDisplayFunc(display_callback);
-	glutReshapeFunc(reshape_callback);
-	//glutKeyboardFunc(keys);
-	//glutTimerFunc(2000, timer, 0);
+	glutDisplayFunc(splashScreen);//Dispaly callback for the current window
+	glutKeyboardFunc(keys);
 	init();
-	glutMainLoop(); //Keep calling display functions
+	glutMainLoop(); //Keep calling display functions and window is displayed
 	return 0;
 	
 }

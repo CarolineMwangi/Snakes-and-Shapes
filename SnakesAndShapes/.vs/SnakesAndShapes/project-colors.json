@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c166b121-5c97-44e1-a946-8eb72b298fd9": {
+      "ProjectGuid": "c166b121-5c97-44e1-a946-8eb72b298fd9",
+      "DisplayName": "SnakesAndShapes",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
