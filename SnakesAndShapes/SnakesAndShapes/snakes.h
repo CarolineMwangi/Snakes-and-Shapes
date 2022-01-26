@@ -6,7 +6,11 @@
 #define RIGHT 2
 #define LEFT -2
 
+#define MAX 60
+
 void initGrid(int, int);
 void Grid();
 void snake();
+void food();
+void random(int&, int&);
 #endif

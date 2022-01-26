@@ -1,9 +1,10 @@
-#include <GL/glut.h>
+#include <glut.h>
 #include <GL/gl.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "snakes.h"
+#include <stdlib.h>
 
 #define COLUMNS 50
 #define ROWS 50
@@ -11,6 +12,9 @@
 
 //Point to snake direction
 extern short snakeDir;
+bool endGame = false;
+
+int points = 0;
 
 void splashScreen();
 void display();
@@ -62,7 +66,16 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT);
 	Grid();
 	snake();
+	food();
 	glutSwapBuffers();
+	if (endGame) {
+		char _points[10];
+		itoa(points, _points, 10);
+		char text[50] = "Your total points: ";
+		strcat(text, _points);
+		MessageBox(NULL, text, "GAME OVER");
+		exit(0);
+	}
 }
 
 void reshape(int width, int height)
