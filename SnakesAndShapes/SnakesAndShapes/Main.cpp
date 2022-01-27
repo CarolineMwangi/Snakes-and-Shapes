@@ -7,10 +7,14 @@
 
 #define COLUMNS 50
 #define ROWS 50
-#define FPS 7 //snake will move through 7 frames in one second
+#define FPS 5 //snake will move through 5 frames in one second
 
 //Point to snake direction
 extern short snakeDir;
+bool gameOver = false;
+
+int scores = 0;
+
 
 void splashScreen();
 void display();
@@ -62,7 +66,18 @@ void display()
 	glClear(GL_COLOR_BUFFER_BIT);
 	Grid();
 	snake();
+	food(); 
 	glutSwapBuffers();
+	if (gameOver)
+	{
+		char _score[10];
+		_itoa_s(scores, _score, 10);
+		char text[50] = "GAME OVER! YOUR SCORE IS: ";
+		strcat_s(text, _score);
+		MessageBoxA(NULL, text, "GAME OVER!", 0);
+		exit(0);
+		
+	}
 }
 
 void reshape(int width, int height)
