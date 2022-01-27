@@ -1,11 +1,11 @@
 ﻿  Main.cpp
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(25,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(36,19): warning C4018: '<': signed/unsigned mismatch
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(41,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(43,19): warning C4018: '<': signed/unsigned mismatch
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(49,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\Main.cpp(51,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(25,33): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(36,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(41,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(43,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(49,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\Main.cpp(51,19): warning C4018: '<': signed/unsigned mismatch
   snakes.cpp
-C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\SnakesAndShapes\snakes.cpp(49,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\SnakesAndShapes\snakes.cpp(49,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
   Generating Code...
-  SnakesAndShapes.vcxproj -> C:\Users\HP\OneDrive\Desktop\Computer Graphics\SnakesAndShapes\Debug\SnakesAndShapes.exe
+  SnakesAndShapes.vcxproj -> C:\Users\HP\OneDrive\Desktop\Computer Graphics\Snakes-and-Shapes\SnakesAndShapes\Debug\SnakesAndShapes.exe
